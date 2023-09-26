@@ -1,0 +1,17 @@
+---
+import Base from "../../layouts/Base.astro";
+const allPosts = await Astro.glob("../posts/*.md");
+const tags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
+---
+
+<Base frontmatter={{ title: "Tag Index" }}>
+	<div class="tags">
+		{
+			tags.map((tag) => (
+				<p class="tag">
+					<a href={`/tags/${tag}`}>{tag}</a>
+				</p>
+			))
+		}
+	</div>
+</Base>
