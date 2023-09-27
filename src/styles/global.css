@@ -3,8 +3,13 @@
 @tailwind utilities;
 
 @layer base {
+	body {
+		/* @apply px-4 py-2; */
+	}
+
+	/* a,
 	a:link,
 	a:visited {
 		@apply text-blue-500 underline;
-	}
+	} */
 }

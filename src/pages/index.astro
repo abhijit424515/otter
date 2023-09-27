@@ -1,17 +1,22 @@
 ---
+import BlogCard from "../components/BlogCard.astro";
 import Base from "../layouts/Base.astro";
 const allPosts = await Astro.glob("../pages/posts/*.md");
 ---
 
-<Base frontmatter={{ title: "My Astro Learning Blog" }}>
-	<p>This is where I will post about my journey learning Astro.</p>
-	<ul>
+<Base frontmatter={{ title: "" }}>
+	<div
+		class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 p-4"
+	>
 		{
 			allPosts.map((post) => (
-				<li>
-					<a href={post.url}>{post.frontmatter.title}</a>
-				</li>
+				<BlogCard
+					url={post.url}
+					src={post.frontmatter.image.url}
+					title={post.frontmatter.title}
+					description={post.frontmatter.description}
+				/>
 			))
 		}
-	</ul>
+	</div>
 </Base>

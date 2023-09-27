@@ -1,0 +1,21 @@
+<textarea id="markdownInput" placeholder="Enter markdown here"></textarea>
+
+<p>Converted Markdown:</p>
+<div id="convertedMarkdown"></div>
+
+<script>
+	import { marked } from "marked";
+
+	const textarea = document.getElementById(
+		"markdownInput"
+	) as HTMLTextAreaElement;
+	const outputDiv = document.getElementById("convertedMarkdown");
+
+	console.log(textarea, outputDiv);
+
+	if (textarea && outputDiv) {
+		textarea.addEventListener("input", () => {
+			outputDiv.innerHTML = marked.parse(textarea.value);
+		});
+	}
+</script>

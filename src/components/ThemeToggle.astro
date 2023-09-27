@@ -1,0 +1,66 @@
+<label class="switch">
+	<input type="checkbox" checked />
+	<span class="slider round"></span>
+</label>
+
+<style>
+	.switch {
+		position: relative;
+		display: inline-block;
+		width: 39px; /* Scaled width: 30px * 1.3 */
+		height: 22.1px; /* Scaled height: 17px * 1.3 */
+	}
+
+	.switch input {
+		opacity: 0;
+		width: 0;
+		height: 0;
+	}
+
+	.slider {
+		position: absolute;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: #ccc;
+		-webkit-transition: 0.52s; /* Scaled transition time: 0.4s * 1.3 */
+		transition: 0.52s; /* Scaled transition time: 0.4s * 1.3 */
+	}
+
+	.slider:before {
+		position: absolute;
+		content: "";
+		height: 16.9px; /* Scaled height: 13px * 1.3 */
+		width: 16.9px; /* Scaled width: 13px * 1.3 */
+		left: 2.6px; /* Scaled left offset: 2px * 1.3 */
+		bottom: 2.6px; /* Scaled bottom offset: 2px * 1.3 */
+		background-color: white;
+		-webkit-transition: 0.52s; /* Scaled transition time: 0.4s * 1.3 */
+		transition: 0.52s; /* Scaled transition time: 0.4s * 1.3 */
+	}
+
+	input:checked + .slider {
+		background-color: black;
+	}
+
+	input:focus + .slider {
+		box-shadow: 0 0 1.3px black; /* Scaled box shadow: 1px * 1.3 */
+	}
+
+	input:checked + .slider:before {
+		-webkit-transform: translateX(16.9px); /* Scaled translation: 13px * 1.3 */
+		-ms-transform: translateX(16.9px); /* Scaled translation: 13px * 1.3 */
+		transform: translateX(16.9px); /* Scaled translation: 13px * 1.3 */
+	}
+
+	/* Rounded sliders */
+	.slider.round {
+		border-radius: 22.1px; /* Scaled border radius: 17px * 1.3 */
+	}
+
+	.slider.round:before {
+		border-radius: 50%;
+	}
+</style>
